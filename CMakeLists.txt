@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.6...3.28)
 
 project(candycrisis)
 
@@ -17,7 +17,11 @@ IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 	add_definitions(-DLINUX=1)
 endif()
 
-add_definitions(-std=c++11) 
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(SDL2 REQUIRED sdl2)
+include_directories(${SDL2_INCLUDE_DIRS})
+
+add_definitions(-std=c++11)
 
 set(GAME_SOURCE_FILES
 	blitter.cpp

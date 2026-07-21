@@ -616,7 +616,7 @@ void Initialize(void)
 #if __APPLE__
     sprintf(candyCrisisResources, "%s/", [[[NSBundle mainBundle] resourcePath] UTF8String]);
 #endif
-#ifdef linux
+#ifdef __linux__
 	strcpy(candyCrisisResources, "CandyCrisisResources/");
 #endif
 
